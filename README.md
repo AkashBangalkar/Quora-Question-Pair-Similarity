@@ -26,7 +26,7 @@ Total we have 404290 entries. Splitted data into train and test with 70% and 30%
 I derived some features from questions like number_of_common_words, word_share and some distances_between_questions with the help of word vectors. Will discuss those below. You can check my total work [here](https://github.com/akashbangalkar/quora_question_pair_simi).
 ### Some Analysis:
 - ##### Distribution of data points among output classes  
-   ![No of Datapoints Per Class](https://github.com/UdiBhaskar/Quora-Question-pair-similarity/blob/master/Images/output_30_1.png "No of Datapoints Per Class") 
+   ![No of Datapoints Per Class](https://github.com/akashbangalkar/quora_question_pair_simi/blob/master/Images/output_1.png "No of Datapoints Per Class") 
 - ##### Number of unique questions
    ![Number of unique questions](https://github.com/UdiBhaskar/Quora-Question-pair-similarity/blob/master/Images/output_35_0.png "Number of unique questions") 
 - ##### Number of occurrences of each question
