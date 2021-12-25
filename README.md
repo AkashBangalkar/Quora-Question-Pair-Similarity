@@ -21,22 +21,17 @@ Identify which questions asked on Quora are duplicates of questions that have al
 
 ### Data Overview:
 Train.csv contains 5 columns : qid1, qid2, question1, question2, is_duplicate. 
-Total we have 404290 entries. Splitted data into train and test with 70% and 30%.
+Total we have 404290 entries. I worked on 50k entries. Splitted data into train and test with 70% and 30%.
 
 I derived some features from questions like number_of_common_words, word_share and some distances_between_questions with the help of word vectors. Will discuss those below. You can check my total work [here](https://github.com/akashbangalkar/quora_question_pair_simi).
 ### Some Analysis:
 - ##### Distribution of Data Points Among Output Classes  
-   ![No of Datapoints Per Class](https://github.com/akashbangalkar/quora_question_pair_simi/blob/main/Images/output_1.png "No of Datapoints Per Class") 
+   ![No of Datapoints Per Class](https://github.com/akashbangalkar/quora_question_pair_simi/blob/main/Images/class.png "No of Datapoints Per Class") 
 - ##### Number of Unique Questions
-   ![Number of unique questions](https://github.com/akashbangalkar/quora_question_pair_simi/blob/main/Images/output_2.png "Number of Unique Questions") 
+   ![Number of Unique Questions](https://github.com/akashbangalkar/quora_question_pair_simi/blob/main/Images/output_1.png "Number of Unique Questions") 
 - ##### Number of Occurrences of Each Question
-   ![Number of occurrences of each question](https://github.com/akashbangalkar/quora_question_pair_simi/blob/main/Images/output_3.png "Number of Occurrences of Each Question")
+   ![Number of Occurrences of Each Question](https://github.com/akashbangalkar/quora_question_pair_simi/blob/main/Images/occurance.png "Number of Occurrences of Each Question")
 
-- ##### Wordcloud For Similar Questions
-   ![Wordcloud for similar questions](https://github.com/akashbangalkar/quora_question_pair_simi/blob/main/Images/output_6.png "Wordcloud For Similar Questions")
-- ##### Wordcloud For Dissimilar Questions
-   ![Wordcloud for dissimilar questions](https://github.com/akashbangalkar/quora_question_pair_simi/blob/main/Images/output_7.png "Wordcloud for Disimilar Questions")
-   
 ### Feature Extraction:
 - ##### Basic Features - Extract Some Features Before Cleaning of Data -
   - <b>freq_qid1</b> = Frequency of qid1's
@@ -67,26 +62,18 @@ I derived some features from questions like number_of_common_words, word_share a
   - <b>token_sort_ratio</b> = sorting the tokens in string and then scoring fuzz_ratio.
   - <b>longest_substr_ratio</b> = len(longest common substring) / (min(len(q1_tokens), len(q2_tokens))
   
-- ##### Extract Tf-Idf features for this combined question1 and question2. Transformed test data into same vector space. 
-- ##### From Pretrained glove word vectors got average word vector for question1 and question2. With this avg word vector got below distances. 
-  - <b>Cosine distance</b>
-  - <b>Cityblock distance</b>
-  - <b>Canberra distance</b>
-  - <b>Euclidean distance</b>
-  - <b>Minkowski distance</b>
-   
 ### Some Features analysis and visualizations:
-- ##### word_share - We can check from below that it is overlaping a bit, but it is giving some classifiable score for disimilar questions.
-   ![Wordshare](https://github.com/akashbangalkar/quora_question_pair_simi/blob/main/Images/output_4.png "Wordshare")
+- ##### Word Share - We can check from below that it is overlaping a bit, but it is giving some classifiable score for disimilar questions.
+   ![Wordshare](https://github.com/akashbangalkar/quora_question_pair_simi/blob/main/Images/word share.png "Wordshare")
    
-- ##### Word Common - it is almost overlaping.
-   ![Word common](https://github.com/akashbangalkar/quora_question_pair_simi/blob/main/Images/output_5.png "Word common")
+- ##### Word Total -
+   ![Word Total](https://github.com/akashbangalkar/quora_question_pair_simi/blob/main/Images/word total.png "Word Total")
    
 - ##### Bivariate analysis of features 'ctc_min', 'cwc_min', 'csc_min', 'token_sort_ratio'. We can observe that we can divide duplicate and non duplicate with some of these features with some patterns. 
-   ![Pair plot](https://github.com/akashbangalkar/quora_question_pair_simi/blob/main/Images/output_8.png "Pair plot")
+   ![Pair plot](https://github.com/akashbangalkar/quora_question_pair_simi/blob/main/Images/pair.png "Pair plot")
    
-- ##### Bivariate analysis of features 'Word_Mover_Dist', 'dist_cosine', 'dist_cityblock', 'dist_canberra','dist_euclidean'.This also giving some patterns to classify.
-   ![Pair plot of distances](https://github.com/akashbangalkar/quora_question_pair_simi/blob/main/Images/output_9.png "Pair plot of distances")
+- ##### Fuzz Ratio -
+   ![Fuzz Ratio](https://github.com/akashbangalkar/quora_question_pair_simi/blob/main/Images/fuzz.png "Fuzz Ratio")
    
 ### Machine Learning Models:
    - Trained a random model to check worst case log loss and got log loss as 0.8826
