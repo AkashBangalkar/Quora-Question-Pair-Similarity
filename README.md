@@ -64,10 +64,10 @@ I derived some features from questions like number_of_common_words, word_share a
   
 ### Some Features analysis and visualizations:
 - ##### Word Share - We can check from below that it is overlaping a bit, but it is giving some classifiable score for disimilar questions.
-   ![Wordshare](https://github.com/akashbangalkar/quora_question_pair_simi/blob/main/Images/word share.png "Wordshare")
+   ![Wordshare](https://github.com/akashbangalkar/quora_question_pair_simi/blob/main/Images/word%20share.png "Wordshare")
    
 - ##### Word Total -
-   ![Word Total](https://github.com/akashbangalkar/quora_question_pair_simi/blob/main/Images/word total.png "Word Total")
+   ![Word Total](https://github.com/akashbangalkar/quora_question_pair_simi/blob/main/Images/word%20total.png "Word Total")
    
 - ##### Bivariate analysis of features 'ctc_min', 'cwc_min', 'csc_min', 'token_sort_ratio'. We can observe that we can divide duplicate and non duplicate with some of these features with some patterns. 
    ![Pair plot](https://github.com/akashbangalkar/quora_question_pair_simi/blob/main/Images/pair.png "Pair plot")
